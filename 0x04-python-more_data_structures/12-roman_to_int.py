@@ -3,7 +3,7 @@ def roman_to_int(roman_string):
     if roman_string is None or type(roman_string) is not str:
         return 0
     for j in roman_string:
-        if (j != 'I' and j != 'V' and j != 'X' and 
+        if (j != 'I' and j != 'V' and j != 'X' and
                 j != 'L' and j != 'C' and j != 'D' and j != 'M'):
             return 0
 
