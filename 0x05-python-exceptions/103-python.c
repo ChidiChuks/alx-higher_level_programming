@@ -8,7 +8,7 @@ void print_python_list(PyObject *p)
 
 	if (!PyList_Check(p))
 	{
-		printf("[*] Python list info\n [ERROR] Invalid List Object\n");
+		printf("[*] Python list info\n  [ERROR] Invalid List Object\n");
 		return;
 	}
 
@@ -29,19 +29,24 @@ void print_python_bytes(PyObject *p)
 
 	if (!PyBytes_Check(p))
 	{
-		printf("[.] bytes object info\n [ERROR] Invalid Bytes Object\n");
+		printf("[.] bytes object info\n  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
 	size = PyBytes_Size(p);
 	string = PyBytes_AsString(p);
 
-	printf("[.] bytes object info\n size: %ld\n trying string: %s\n", size, string);
+	printf("[.] bytes object info\n  size: %ld\n  trying string: %s\n", size, string);
 
-	printf(" first 10 bytes:");
+	printf("  first 10 bytes:");
 	if (size < 10)
 	{
 		for (i = 0; i < size; i++)
+			printf(" %02x", (unsigned char)string[i]);
+	}
+	else
+	{
+		for (i = 0; i < 10; i++)
 			printf(" %02x", (unsigned char)string[i]);
 	}
 
@@ -55,11 +60,11 @@ void print_python_float(PyObject *p)
 
 	if (!PyFloat_Check(p))
 	{
-		printf("[.] float object info\n [ERROR] Invalid Float Object\n");
+		printf("[.] float object info\n  [ERROR] Invalid Float Object\n");
 		return;
 	}
 
 	value = floatObj->ob_fval;
 
-	printf("[.] float object info\n value: %g\n", value);
+	printf("[.] float object info\n  value: %g\n", value);
 }
